@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Shortened App Link</title>
+    <style>
+        /* This CSS ensures the iframe is full-screen and the page has no margins or scrollbars */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Hides scrollbars from the main page */
+            height: 100%;
+            width: 100%;
+        }
+
+        #fullscreen-iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* Removes the border around the iframe */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe
+        id="fullscreen-iframe"
+        src="https://script.google.com/macros/s/AKfycbx2KVyvFiSVQE5EF8IDl-3BiL7RN2uW4QcSNiP7g25wEP6GYzfaJWWmtVTwckEYnCsF7w/exec"
+        allowfullscreen
+    >
+        Your browser does not support iframes. Please open the app directly.
+    </iframe>
+
+</body>
+</html>
