@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Shortened URL Site</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Responsive Web App</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <style>
-        /* Basic CSS Reset */
+        /* CSS Reset to eliminate default browser margins/padding */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden; /* Prevent scrolling on the main page */
+            width: 100%;
+            overflow: hidden; /* Prevents unwanted scrollbars on the main page */
+            box-sizing: border-box; /* Includes padding and border in the element's total width and height */
         }
-        /* Style for the iframe to ensure it takes up the full screen */
-        iframe {
+        
+        /* Style for the iframe to ensure it takes up the entire screen */
+        #content-frame {
             display: block;
-            width: 100vw; /* Viewport width */
-            height: 100vh; /* Viewport height */
-            border: none;
+            /* Use 100% which will reference the full height/width of the body/html */
+            width: 100%; 
+            height: 100%;
+            border: none; /* Removes the default iframe border */
+            position: absolute; /* Ensures it covers the entire viewport */
+            top: 0;
+            left: 0;
+            /* Add overflow-y: scroll to the iframe itself if the embedded content needs scrolling */
+            overflow-y: scroll; 
+            -webkit-overflow-scrolling: touch; /* Improves scrolling performance on iOS */
         }
     </style>
 </head>
 <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbx2KVyvFiSVQE5EF8IDl-3BiL7RN2uW4QcSNiP7g25wEP6GYzfaJWWmtVTwckEYnCsF7w/exec"></iframe>
+    <iframe id="content-frame" src="https://script.google.com/macros/s/AKfycbx2KVyvFiSVQE5EF8IDl-3BiL7RN2uW4QcSNiP7g25wEP6GYzfaJWWmtVTwckEYnCsF7w/exec"></iframe>
 </body>
 </html>
+
 
 
 
