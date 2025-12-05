@@ -1,40 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ChequeBook pro</title>
+    <title>ChequeBook Pro</title>
     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-     <link rel="icon" type="image/png" href="favicon.png">
+    <!-- App icon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
 
     <style>
-        /* CSS Reset to eliminate default browser margins/padding */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
-            overflow: hidden; /* Prevents unwanted scrollbars on the main page */
-            box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+            overflow: hidden;
+            box-sizing: border-box;
+            background: #fff;
         }
         
-        /* Style for the iframe to ensure it takes up the entire screen */
         #content-frame {
             display: block;
-            /* Use 100% which will reference the full height/width of the body/html */
-            width: 100%; 
+            width: 100%;
             height: 100%;
-            border: none; /* Removes the default iframe border */
-            position: absolute; /* Ensures it covers the entire viewport */
+            border: none;
+            position: absolute;
             top: 0;
             left: 0;
-            /* Add overflow-y: scroll to the iframe itself if the embedded content needs scrolling */
             overflow-y: scroll; 
-            -webkit-overflow-scrolling: touch; /* Improves scrolling performance on iOS */
+            -webkit-overflow-scrolling: touch;
         }
     </style>
 </head>
+
 <body>
-    <iframe id="content-frame" src="https://script.google.com/macros/s/AKfycbx2KVyvFiSVQE5EF8IDl-3BiL7RN2uW4QcSNiP7g25wEP6GYzfaJWWmtVTwckEYnCsF7w/exec"></iframe>
+    <iframe
+        id="content-frame"
+        src="https://script.google.com/macros/s/AKfycbx2KVyvFiSVQE5EF8IDl-3BiL7RN2uW4QcSNiP7g25wEP6GYzfaJWWmtVTwckEYnCsF7w/exec">
+    </iframe>
+
+    <!-- Service worker registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                .then(reg => console.log("Service Worker registered"))
+                .catch(err => console.log("Service Worker not registered", err));
+            });
+        }
+    </script>
+
 </body>
 </html>
