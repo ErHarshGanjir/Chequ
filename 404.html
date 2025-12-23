@@ -1,155 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>404 • Page Not Found</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>404 • Rakhecha Medical Stores</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+:root {
+  --blue: #00c6ff;
+  --purple: #7f5cff;
+}
 
-    body {
-      margin: 0;
-      height: 100vh;
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+* { box-sizing: border-box; }
 
-    .container {
-      text-align: center;
-      max-width: 600px;
-      padding: 40px;
-      animation: fadeIn 1.2s ease;
-    }
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #fff;
+  overflow: hidden;
+  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+  background-size: 600% 600%;
+  animation: bgMove 20s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    h1 {
-      font-size: 120px;
-      margin: 0;
-      letter-spacing: 8px;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: float 3s ease-in-out infinite;
-    }
+/* 🌈 Animated background */
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    h2 {
-      font-size: 26px;
-      margin-top: 10px;
-      font-weight: 500;
-    }
+/* ⭐ Stars */
+.stars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
 
-    p {
-      font-size: 16px;
-      opacity: 0.85;
-      margin-top: 12px;
-      line-height: 1.6;
-    }
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  opacity: 0.7;
+  animation: fall linear infinite;
+}
 
-    .btn-group {
-      margin-top: 30px;
-    }
+@keyframes fall {
+  from { transform: translateY(-10vh); }
+  to { transform: translateY(110vh); }
+}
 
-    a {
-      text-decoration: none;
-      padding: 12px 26px;
-      margin: 8px;
-      border-radius: 30px;
-      font-size: 15px;
-      display: inline-block;
-      transition: 0.3s ease;
-    }
+/* 🚀 Main container */
+.container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px;
+  animation: fadeZoom 1.3s ease;
+}
 
-    .home {
-      background: #00c6ff;
-      color: #000;
-    }
+@keyframes fadeZoom {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
 
-    .home:hover {
-      background: #00a8e8;
-      transform: translateY(-2px);
-    }
+h1 {
+  font-size: 130px;
+  margin: 0;
+  background: linear-gradient(90deg, var(--blue), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: float 3s ease-in-out infinite;
+}
 
-    .back {
-      border: 1px solid rgba(255,255,255,0.6);
-      color: #fff;
-    }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
 
-    .back:hover {
-      background: rgba(255,255,255,0.1);
-      transform: translateY(-2px);
-    }
+h2 {
+  font-weight: 500;
+  margin-top: 10px;
+}
 
-    .stars {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: transparent;
-      overflow: hidden;
-      z-index: -1;
-    }
+p {
+  opacity: 0.85;
+  line-height: 1.6;
+}
 
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      opacity: 0.8;
-      animation: moveStar linear infinite;
-    }
+/* 👨‍🚀 Astronaut */
+.astronaut {
+  font-size: 64px;
+  margin: 20px 0;
+  animation: spinFloat 6s linear infinite;
+}
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-14px); }
-    }
+@keyframes spinFloat {
+  0% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(10deg) translateY(-10px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
+/* 🔘 Buttons */
+.buttons {
+  margin-top: 30px;
+}
 
-    @keyframes moveStar {
-      from { transform: translateY(0); }
-      to { transform: translateY(100vh); }
-    }
-  </style>
+a {
+  display: inline-block;
+  margin: 10px;
+  padding: 14px 30px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  transition: 0.4s ease;
+}
+
+.home {
+  background: linear-gradient(90deg, var(--blue), var(--purple));
+  color: #000;
+  box-shadow: 0 0 20px rgba(0,198,255,0.5);
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
+  to { box-shadow: 0 0 30px rgba(127,92,255,0.9); }
+}
+
+.home:hover {
+  transform: scale(1.08);
+}
+
+.back {
+  border: 1px solid rgba(255,255,255,0.6);
+  color: white;
+}
+
+.back:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-3px);
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  h1 { font-size: 90px; }
+}
+</style>
 </head>
+
 <body>
 
-  <div class="stars" id="stars"></div>
+<div class="stars" id="stars"></div>
 
-  <div class="container">
-    <h1>404</h1>
-    <h2>Lost in Space 🚀</h2>
-    <p>
-      The page you are looking for doesn’t exist<br>
-      or may have been moved.
-    </p>
+<div class="container">
+  <h1>404</h1>
+  <div class="astronaut">👨‍🚀</div>
+  <h2>Page Lost in Space</h2>
+  <p>
+    The page you’re trying to reach doesn’t exist<br>
+    or has drifted into the unknown.
+  </p>
 
-    <div class="btn-group">
-      <a href="/" class="home">🏠 Go Home</a>
-      <a href="javascript:history.back()" class="back">⬅ Go Back</a>
-    </div>
+  <div class="buttons">
+    <!-- 🔗 Rakhecha Medical Stores Homepage -->
+    <a href="https://rakhechamedicalstores.github.io/" class="home">
+      🏠 Rakhecha Medical Stores
+    </a>
+    <a href="javascript:history.back()" class="back">
+      ⬅ Go Back
+    </a>
   </div>
+</div>
 
-  <script>
-    const stars = document.getElementById("stars");
+<script>
+const stars = document.getElementById("stars");
 
-    for (let i = 0; i < 80; i++) {
-      const star = document.createElement("div");
-      star.className = "star";
-      star.style.left = Math.random() * 100 + "vw";
-      star.style.top = Math.random() * 100 + "vh";
-      star.style.animationDuration = (2 + Math.random() * 6) + "s";
-      stars.appendChild(star);
-    }
-  </script>
-
-</body>
-</html>
+for (let i = 0; i < 120; i++) {
+  const s = document.createElement("div");
+  s.className = "star";
+  s.style.left = Math.random() * 100 + "v*
